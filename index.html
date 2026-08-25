@@ -3,215 +3,993 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neeraj Yadav | Developer & Automation Enthusiast</title>
-  <meta name="description" content="Official portfolio of Neeraj Yadav - Developer and Automation Enthusiast based in Indore, Madhya Pradesh, India." />
+  <title>Neeraj Yadav | Software & Automation Engineer</title>
+  <meta name="description" content="Official Portfolio of Neeraj Yadav - Software & Automation Developer based in Indore, Madhya Pradesh, India. Specializing in Python, autonomous bots, and intelligent workflow systems." />
   <meta name="author" content="Neeraj Yadav" />
+  <meta property="og:title" content="Neeraj Yadav | Software & Automation Engineer" />
+  <meta property="og:description" content="Explore high-impact software projects, autonomous bot systems, and automation architectures built by Neeraj Yadav." />
   <meta property="og:image" content="profile.jpg.png" />
   <meta property="og:type" content="website" />
-  <meta name="keywords" content="Neeraj Yadav, Neeraj Yadav Indore, Developer, Python, Automation, Indore" />
-  
+  <meta property="og:url" content="https://neerajyadav-in.github.io/portfolio/" />
+  <meta name="keywords" content="Neeraj Yadav, Neeraj Yadav Indore, Software Engineer, Python Developer, Automation, Indore, neerajyadav-in, Portfolio" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
     :root {
-      --bg: #0b0f19;
-      --card-bg: rgba(30, 41, 59, 0.7);
-      --accent: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.25);
-      --text: #f8fafc;
+      --bg: #07090e;
+      --bg-surface: #0d121f;
+      --bg-card: rgba(18, 24, 38, 0.75);
+      --bg-card-hover: rgba(26, 35, 56, 0.85);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-accent: rgba(56, 189, 248, 0.3);
+      --text: #f1f5f9;
       --text-muted: #94a3b8;
-      --border: #334155;
-      --green: #10b981;
+      --text-dim: #64748b;
+      --accent: #38bdf8;
+      --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      --glow-blue: 0 0 35px rgba(56, 189, 248, 0.2);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
-    .container { max-width: 780px; margin: 0 auto; }
-    
-    /* Header & Profile */
-    header { text-align: center; margin-bottom: 2rem; }
-    .profile-img { width: 68px; height: 68px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); box-shadow: 0 0 16px var(--accent-glow); margin-bottom: 0.75rem; pointer-events: none; }
-    header h1 { font-size: 2.2rem; color: #fff; margin-bottom: 0.2rem; }
-    header p { color: var(--accent); font-size: 1.05rem; font-weight: 500; }
-    .badge { display: inline-block; background: rgba(3, 105, 161, 0.4); border: 1px solid var(--accent); color: #fff; font-size: 0.8rem; padding: 4px 14px; border-radius: 999px; margin-top: 8px; }
-    
-    /* Terminal Box */
-    .terminal { background: #030712; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem; margin: 1.5rem auto 2.5rem; text-align: left; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
-    .terminal-header { display: flex; gap: 6px; margin-bottom: 0.8rem; }
-    .dot { width: 11px; height: 11px; border-radius: 50%; }
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #f59e0b; }
-    .dot-green { background: #10b981; }
-    .terminal-body { font-family: 'Courier New', Courier, monospace; color: #38bdf8; font-size: 0.92rem; min-height: 24px; }
-    .cursor { display: inline-block; width: 8px; height: 15px; background: #38bdf8; vertical-align: middle; animation: blink 0.8s infinite; }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 
-    /* Sections & Cards */
-    section { margin-bottom: 2.2rem; }
-    h2 { font-size: 1.35rem; color: var(--accent); margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
-    .card { background: var(--card-bg); backdrop-filter: blur(8px); padding: 1.35rem; border-radius: 10px; margin-bottom: 1rem; border: 1px solid var(--border); transition: transform 0.2s, border-color 0.2s; }
-    .card:hover { transform: translateY(-2px); border-color: var(--accent); }
-    .card h3 { font-size: 1.15rem; margin-bottom: 0.4rem; color: #fff; }
-    
-    /* Interactive Simulator Widget */
-    .demo-widget { background: #0f172a; border: 1px solid #38bdf8; border-radius: 10px; padding: 1.25rem; margin-top: 1rem; }
-    .demo-tabs { display: flex; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-    .demo-tab-btn { background: transparent; border: none; color: var(--text-muted); font-size: 0.9rem; font-weight: bold; cursor: pointer; padding: 4px 12px; border-radius: 6px; }
-    .demo-tab-btn.active { background: var(--accent); color: #0b0f19; }
-    .demo-input { width: 100%; background: #1e293b; border: 1px solid var(--border); color: #fff; padding: 10px; border-radius: 6px; margin-bottom: 0.75rem; font-size: 0.9rem; }
-    .demo-btn { background: var(--accent); color: #0b0f19; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; }
-    .demo-output { margin-top: 0.75rem; background: #030712; border: 1px dashed var(--border); padding: 10px; border-radius: 6px; font-family: monospace; font-size: 0.85rem; color: #34d399; min-height: 38px; }
-    
-    /* Skills */
-    .skills-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0.5rem; }
-    .skill-tag { background: rgba(51, 65, 85, 0.6); border: 1px solid var(--border); color: #e2e8f0; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; transition: all 0.2s; }
-    .skill-tag:hover { background: var(--accent); color: #0b0f19; font-weight: bold; border-color: var(--accent); }
-    
-    footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 2.5rem; border-top: 1px solid var(--border); padding-top: 1.2rem; }
-    a.btn { display: inline-block; background: var(--accent); color: #0b0f19; padding: 9px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 8px; font-size: 0.9rem; }
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.65;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 65%, rgba(168, 85, 247, 0.07) 0%, transparent 40%),
+        radial-gradient(circle at 50% 90%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #334155; }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Navbar */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 9, 14, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-logo-badge {
+      width: 32px;
+      height: 32px;
+      background: var(--accent-gradient);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #07090e;
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34d399;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-weight: 500;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .btn-nav {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--accent);
+      color: var(--accent) !important;
+      padding: 6px 14px;
+      border-radius: 8px;
+      transition: all 0.2s !important;
+    }
+
+    .btn-nav:hover {
+      background: var(--accent);
+      color: #07090e !important;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 4.5rem 0 3.5rem;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 4px 12px;
+      border-radius: 6px;
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.25rem;
+      color: #ffffff;
+    }
+
+    .hero-title span {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 540px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #07090e;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.25s;
+      box-shadow: 0 4px 20px rgba(56, 189, 248, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(56, 189, 248, 0.45);
+      background: #7dd3fc;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: #1e293b;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .hero-metrics {
+      display: flex;
+      gap: 2rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    .metric-item h4 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 2px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .metric-item p {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+
+    /* Hero Profile Card */
+    .profile-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .profile-card:hover {
+      border-color: var(--border-accent);
+      box-shadow: var(--glow-blue);
+    }
+
+    .profile-card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 1.5rem;
+    }
+
+    .profile-avatar-wrap {
+      position: relative;
+      width: 72px;
+      height: 72px;
+      flex-shrink: 0;
+    }
+
+    .profile-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.3);
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .profile-card-info h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 2px;
+    }
+
+    .profile-card-info p {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .profile-meta-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+      font-size: 0.88rem;
+    }
+
+    .profile-meta-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-muted);
+    }
+
+    .profile-meta-list li strong {
+      color: #fff;
+      min-width: 85px;
+    }
+
+    .profile-skills-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .pill-tag {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: #cbd5e1;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 6px;
+    }
+
+    /* Section Styling */
+    section { padding: 4rem 0; }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    .section-subtitle {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.75px;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+
+    /* Interactive IDE & CLI Section */
+    .ide-window {
+      background: #090d16;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+    }
+
+    .ide-header {
+      background: #0f172a;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1rem;
+      height: 44px;
+    }
+
+    .ide-controls { display: flex; gap: 7px; }
+
+    .ide-dot { width: 11px; height: 11px; border-radius: 50%; }
+    .ide-dot-red { background: #ef4444; }
+    .ide-dot-yellow { background: #f59e0b; }
+    .ide-dot-green { background: #10b981; }
+
+    .ide-tabs { display: flex; height: 100%; }
+
+    .ide-tab {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      padding: 0 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-right: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    .ide-tab.active {
+      background: #090d16;
+      color: var(--accent);
+      border-bottom: 2px solid var(--accent);
+    }
+
+    .ide-body {
+      padding: 1.5rem;
+      min-height: 280px;
+    }
+
+    .code-panel {
+      display: none;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      overflow-x: auto;
+    }
+
+    .code-panel.active { display: block; }
+
+    .token-keyword { color: #f472b6; }
+    .token-fn { color: #60a5fa; }
+    .token-str { color: #34d399; }
+    .token-comment { color: #64748b; font-style: italic; }
+    .token-num { color: #fbbf24; }
+
+    /* Interactive Terminal inside IDE */
+    .cli-container { font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; }
+    .cli-history { color: #cbd5e1; margin-bottom: 1rem; line-height: 1.6; }
+    .cli-input-row { display: flex; align-items: center; gap: 8px; }
+    .cli-prompt { color: var(--accent); font-weight: 600; }
+    .cli-input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #34d399;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.88rem;
+      flex-grow: 1;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.85rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--accent-gradient);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-accent);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-card:hover::before { opacity: 1; }
+    .project-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .project-title { font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+    .project-desc { color: var(--text-muted); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1; }
+    .project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.5rem; }
+    .tech-badge {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    .project-action-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      width: 100%;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .project-action-btn:hover {
+      background: var(--accent);
+      color: #07090e;
+      border-color: var(--accent);
+    }
+
+    /* Skills Section */
+    .skills-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      transition: all 0.25s;
+    }
+
+    .skill-category-card:hover { border-color: var(--border-accent); }
+    .skill-cat-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1.25rem; }
+    .skill-cat-icon { font-size: 1.3rem; }
+    .skill-cat-title { font-size: 1.1rem; font-weight: 700; color: #fff; }
+    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .skill-item { display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; color: #cbd5e1; }
+    .skill-badge-level {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--accent);
+    }
+
+    /* Contact Section */
+    .contact-card {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .contact-card h3 { font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem; }
+    .contact-card p { color: var(--text-muted); margin-bottom: 2rem; font-size: 1rem; }
+    .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; padding: 2.5rem 0; }
+      .hero-title { font-size: 2.3rem; }
+      .nav-links { display: none; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <img src="profile.jpg.png" alt="Neeraj Yadav" class="profile-img" />
-      <h1>Neeraj Yadav</h1>
-      <p>Developer & Automation Enthusiast</p>
-      <span class="badge">Indore, Madhya Pradesh, India</span>
+
+  <!-- Sticky Navbar -->
+  <nav>
+    <div class="container nav-container">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-badge">NY</div>
+        <span>Neeraj Yadav</span>
+      </a>
+
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span>Open for Projects • Indore, MP</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#terminal">Interactive IDE</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact" class="btn-nav">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="container hero" id="about">
+    <div class="hero-content">
+      <div class="hero-tag">
+        ⚡ Python & Automation Engineer
+      </div>
+      <h1 class="hero-title">
+        Building <span>Autonomous Bots</span> & Smart Workflow Systems.
+      </h1>
+      <p class="hero-desc">
+        I am <strong>Neeraj Yadav</strong>, a self-driven software developer based in Indore, Madhya Pradesh. I engineer robust automation scripts, intelligent bot architectures, and data management pipelines designed to streamline real-world operations.
+      </p>
       
-      <!-- Interactive Typing Terminal -->
-      <div class="terminal">
-        <div class="terminal-header">
-          <span class="dot dot-red"></span>
-          <span class="dot dot-yellow"></span>
-          <span class="dot dot-green"></span>
-        </div>
-        <div class="terminal-body">
-          <span id="typewriter"></span><span class="cursor"></span>
-        </div>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">Explore Projects ↓</a>
+        <a href="mailto:neerajyadav99269@gmail.com" class="btn-secondary">Send Email ✉</a>
       </div>
-    </header>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <div class="card">
-        <p>I am a self-driven developer based in Indore, Madhya Pradesh. I focus on building practical software tools, Python automation scripts, and custom bots that streamline everyday workflows.</p>
-      </div>
-    </section>
-
-    <!-- Interactive Live Demo Section -->
-    <section id="interactive-demo">
-      <h2>Interactive Bot Simulator</h2>
-      <div class="demo-widget">
-        <div class="demo-tabs">
-          <button class="demo-tab-btn active" onclick="switchDemo('checkin')">🤖 Check-in Bot Demo</button>
-          <button class="demo-tab-btn" onclick="switchDemo('expense')">💰 Expense Tracker Demo</button>
+      <div class="hero-metrics">
+        <div class="metric-item">
+          <h4>Python 3</h4>
+          <p>Primary Stack</p>
         </div>
-        
-        <!-- Check-in Tab -->
-        <div id="checkin-panel">
-          <input type="text" id="checkin-input" class="demo-input" placeholder="Type a task/standup (e.g., 'Completed fleet tracker, writing bot code')" />
-          <button class="demo-btn" onclick="runCheckin()">Run Check-in</button>
-          <div id="checkin-output" class="demo-output">// Output will appear here...</div>
+        <div class="metric-item">
+          <h4>2+</h4>
+          <p>Active Systems</p>
         </div>
-
-        <!-- Expense Tab -->
-        <div id="expense-panel" style="display:none;">
-          <input type="text" id="expense-desc" class="demo-input" placeholder="Expense description (e.g., 'Cloud Server Hosting')" />
-          <input type="number" id="expense-amount" class="demo-input" placeholder="Amount in ₹ (e.g., 450)" />
-          <button class="demo-btn" onclick="runExpense()">Log Expense</button>
-          <div id="expense-output" class="demo-output">// Output will appear here...</div>
+        <div class="metric-item">
+          <h4>Indore</h4>
+          <p>Madhya Pradesh</p>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section id="projects">
-      <h2>Featured Projects</h2>
-      <div class="card">
-        <h3>🤖 Automated Daily Check-in Bot</h3>
-        <p>An automated bot that collects daily standup logs, sends routine reminder pings, and syncs progress records seamlessly to databases and cloud sheets.</p>
+    <!-- Profile Badge Card -->
+    <div class="profile-card">
+      <div class="profile-card-header">
+        <div class="profile-avatar-wrap">
+          <img src="profile.jpg.png" alt="Neeraj Yadav" class="profile-img" />
+        </div>
+        <div class="profile-card-info">
+          <h3>Neeraj Yadav</h3>
+          <p>Developer & Automation Engineer</p>
+        </div>
       </div>
-      <div class="card">
-        <h3>💰 Smart Personal Expense & Budget Tracker</h3>
-        <p>A personal finance tool that automatically categorizes spending, tracks daily budgets, and generates structured monthly summary insights.</p>
+
+      <ul class="profile-meta-list">
+        <li><strong>Location:</strong> Indore, Madhya Pradesh, India</li>
+        <li><strong>Focus:</strong> Bot Architectures, APIs & Scripting</li>
+        <li><strong>Status:</strong> 🟢 Active & Building</li>
+      </ul>
+
+      <div class="profile-skills-pills">
+        <span class="pill-tag">Python</span>
+        <span class="pill-tag">AsyncIO</span>
+        <span class="pill-tag">Webhooks</span>
+        <span class="pill-tag">REST APIs</span>
+        <span class="pill-tag">Google Cloud</span>
       </div>
-    </section>
+    </div>
+  </header>
 
-    <section id="skills">
-      <h2>Skills & Technologies</h2>
-      <div class="skills-grid">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">Workflow Automation</span>
-        <span class="skill-tag">REST APIs & Webhooks</span>
-        <span class="skill-tag">Data Modeling</span>
-        <span class="skill-tag">HTML5 & CSS3</span>
-        <span class="skill-tag">Google Workspace Tools</span>
+  <!-- Interactive IDE & CLI Section -->
+  <section class="container" id="terminal">
+    <div class="section-header">
+      <span class="section-subtitle">Interactive Dev Hub</span>
+      <h2 class="section-title">Developer Console & Code Explorer</h2>
+      <p class="section-desc">Inspect project source architectures or run live commands directly in the interactive terminal below.</p>
+    </div>
+
+    <div class="ide-window">
+      <div class="ide-header">
+        <div class="ide-controls">
+          <span class="ide-dot ide-dot-red"></span>
+          <span class="ide-dot ide-dot-yellow"></span>
+          <span class="ide-dot ide-dot-green"></span>
+        </div>
+        <div class="ide-tabs">
+          <button class="ide-tab active" onclick="switchIdeTab('tab-checkin')">checkin_bot.py</button>
+          <button class="ide-tab" onclick="switchIdeTab('tab-expense')">expense_engine.py</button>
+          <button class="ide-tab" onclick="switchIdeTab('tab-config')">developer.json</button>
+          <button class="ide-tab" onclick="switchIdeTab('tab-cli')">&gt;_ Live Terminal</button>
+        </div>
       </div>
-    </section>
 
-    <section id="contact">
-      <h2>Get In Touch</h2>
-      <div class="card" style="text-align: center;">
-        <p>Interested in collaborating or discussing automation projects?</p>
-        <a class="btn" href="mailto:neerajyadav99269@gmail.com">Send Email</a>
+      <div class="ide-body">
+        <!-- Tab 1: Checkin Bot Code -->
+        <div id="tab-checkin" class="code-panel active">
+<span class="token-keyword">import</span> asyncio
+<span class="token-keyword">import</span> httpx
+<span class="token-keyword">from</span> datetime <span class="token-keyword">import</span> datetime
+
+<span class="token-keyword">class</span> <span class="token-fn">DailyCheckinBot</span>:
+    <span class="token-keyword">def</span> <span class="token-fn">__init__</span>(self, webhook_url: str):
+        self.webhook_url = webhook_url
+        self.status = <span class="token-str">"ACTIVE"</span>
+
+    <span class="token-keyword">async def</span> <span class="token-fn">dispatch_standup</span>(self, user: str, updates: list):
+        payload = {
+            <span class="token-str">"timestamp"</span>: datetime.now().isoformat(),
+            <span class="token-str">"author"</span>: user,
+            <span class="token-str">"tasks_completed"</span>: updates,
+            <span class="token-str">"status"</span>: <span class="token-str">"VERIFIED"</span>
+        }
+        <span class="token-comment"># Asynchronous non-blocking dispatch</span>
+        <span class="token-keyword">async with</span> httpx.AsyncClient() <span class="token-keyword">as</span> client:
+            res = <span class="token-keyword">await</span> client.post(self.webhook_url, json=payload)
+            <span class="token-keyword">return</span> res.status_code == <span class="token-num">200</span>
+        </div>
+
+        <!-- Tab 2: Expense Engine Code -->
+        <div id="tab-expense" class="code-panel">
+<span class="token-keyword">class</span> <span class="token-fn">ExpenseAnalyticsEngine</span>:
+    <span class="token-keyword">def</span> <span class="token-fn">__init__</span>(self, monthly_budget: float):
+        self.budget = monthly_budget
+        self.ledger = []
+
+    <span class="token-keyword">def</span> <span class="token-fn">record_transaction</span>(self, category: str, amount: float):
+        entry = {<span class="token-str">"cat"</span>: category, <span class="token-str">"amt"</span>: amount}
+        self.ledger.append(entry)
+        <span class="token-keyword">return</span> {
+            <span class="token-str">"total_spent"</span>: sum(x[<span class="token-str">"amt"</span>] <span class="token-keyword">for</span> x <span class="token-keyword">in</span> self.ledger),
+            <span class="token-str">"remaining"</span>: self.budget - sum(x[<span class="token-str">"amt"</span>] <span class="token-keyword">for</span> x <span class="token-keyword">in</span> self.ledger)
+        }
+        </div>
+
+        <!-- Tab 3: JSON Config -->
+        <div id="tab-config" class="code-panel">
+{
+  <span class="token-str">"name"</span>: <span class="token-str">"Neeraj Yadav"</span>,
+  <span class="token-str">"role"</span>: <span class="token-str">"Software & Automation Developer"</span>,
+  <span class="token-str">"location"</span>: <span class="token-str">"Indore, Madhya Pradesh, India"</span>,
+  <span class="token-str">"primary_stack"</span>: [<span class="token-str">"Python"</span>, <span class="token-str">"AsyncIO"</span>, <span class="token-str">"Webhooks"</span>, <span class="token-str">"REST APIs"</span>],
+  <span class="token-str">"indexing_status"</span>: <span class="token-str">"Ranked on Google Search (Indore Developer)"</span>,
+  <span class="token-str">"github"</span>: <span class="token-str">"https://github.com/neerajyadav-in"</span>
+}
+        </div>
+
+        <!-- Tab 4: Interactive CLI -->
+        <div id="tab-cli" class="code-panel">
+          <div class="cli-container">
+            <div class="cli-history" id="cli-history">
+              Type <span style="color:#38bdf8;">'help'</span> to see available terminal commands.<br/>
+              Available commands: <span style="color:#34d399;">help, about, skills, projects, contact, clear</span>
+            </div>
+            <div class="cli-input-row">
+              <span class="cli-prompt">neeraj@indore:~$</span>
+              <input type="text" id="cli-input" class="cli-input" autofocus placeholder="type 'skills' or 'projects'..." />
+            </div>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer>
-      <p>© 2026 Neeraj Yadav • Indore, India</p>
-    </footer>
-  </div>
+  <!-- Featured Projects Section -->
+  <section class="container" id="projects">
+    <div class="section-header">
+      <span class="section-subtitle">Portfolio Showcases</span>
+      <h2 class="section-title">Engineered Projects & Systems</h2>
+      <p class="section-desc">Practical, real-world software applications built with clean code and high reliability.</p>
+    </div>
 
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div>
+          <div class="project-icon">🤖</div>
+          <h3 class="project-title">Autonomous Check-in & Standup Bot</h3>
+          <p class="project-desc">
+            An asynchronous Python bot engineered to automate daily standups, capture developer progress logs, manage edge-case reminders, and sync data seamlessly to cloud databases.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">Python 3</span>
+            <span class="tech-badge">AsyncIO</span>
+            <span class="tech-badge">Webhooks</span>
+            <span class="tech-badge">REST APIs</span>
+            <span class="tech-badge">Cloud DB</span>
+          </div>
+        </div>
+        <button class="project-action-btn" onclick="triggerCliCommand('projects')">Inspect Architecture ↗</button>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div>
+          <div class="project-icon">💰</div>
+          <h3 class="project-title">Smart Expense & Analytics Engine</h3>
+          <p class="project-desc">
+            An automated personal finance and budgeting system that parses daily financial entries, applies rule-based categorization, and generates monthly performance dashboards.
+          </p>
+          <div class="project-tech">
+            <span class="tech-badge">Python</span>
+            <span class="tech-badge">Data Modeling</span>
+            <span class="tech-badge">JSON Schema</span>
+            <span class="tech-badge">Analytics</span>
+            <span class="tech-badge">Automation</span>
+          </div>
+        </div>
+        <button class="project-action-btn" onclick="triggerCliCommand('about')">View Details ↗</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Competencies Section -->
+  <section class="container" id="skills">
+    <div class="section-header">
+      <span class="section-subtitle">Technical Proficiency</span>
+      <h2 class="section-title">Core Skills & Technologies</h2>
+      <p class="section-desc">A breakdown of my engineering capabilities and software toolchain.</p>
+    </div>
+
+    <div class="skills-wrapper">
+      <div class="skill-category-card">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">⚡</span>
+          <h3 class="skill-cat-title">Programming & Scripting</h3>
+        </div>
+        <ul class="skill-list">
+          <li class="skill-item"><span>Python (Automation & Bots)</span> <span class="skill-badge-level">Advanced</span></li>
+          <li class="skill-item"><span>JavaScript / Modern ES6+</span> <span class="skill-badge-level">Intermediate</span></li>
+          <li class="skill-item"><span>HTML5 & Modern CSS3</span> <span class="skill-badge-level">Proficient</span></li>
+          <li class="skill-item"><span>Bash / Shell Scripting</span> <span class="skill-badge-level">Intermediate</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-category-card">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">🛠️</span>
+          <h3 class="skill-cat-title">Automation & Systems</h3>
+        </div>
+        <ul class="skill-list">
+          <li class="skill-item"><span>Asynchronous Webhooks</span> <span class="skill-badge-level">Core Focus</span></li>
+          <li class="skill-item"><span>RESTful API Integrations</span> <span class="skill-badge-level">Advanced</span></li>
+          <li class="skill-item"><span>Google Workspace Automation</span> <span class="skill-badge-level">Specialist</span></li>
+          <li class="skill-item"><span>Multi-Key API Routing</span> <span class="skill-badge-level">Advanced</span></li>
+        </ul>
+      </div>
+
+      <div class="skill-category-card">
+        <div class="skill-cat-header">
+          <span class="skill-cat-icon">📊</span>
+          <h3 class="skill-cat-title">Data & Engineering</h3>
+        </div>
+        <ul class="skill-list">
+          <li class="skill-item"><span>Data Modeling & Structuring</span> <span class="skill-badge-level">Strong</span></li>
+          <li class="skill-item"><span>SQL & Database Basics</span> <span class="skill-badge-level">Intermediate</span></li>
+          <li class="skill-item"><span>System Error Handling</span> <span class="skill-badge-level">Robust</span></li>
+          <li class="skill-item"><span>Git & GitHub Workflows</span> <span class="skill-badge-level">Daily Driver</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & Connect Section -->
+  <section class="container" id="contact">
+    <div class="contact-card">
+      <span class="section-subtitle">Get In Touch</span>
+      <h3>Let's Build Something Together</h3>
+      <p>Have an automation project, bot development idea, or collaboration opportunity? Feel free to reach out directly.</p>
+      
+      <div class="contact-links">
+        <a href="mailto:neerajyadav99269@gmail.com" class="btn-primary">Email Me (neerajyadav99269@gmail.com)</a>
+        <a href="https://github.com/neerajyadav-in" target="_blank" rel="noopener" class="btn-secondary">GitHub Profile ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 <strong>Neeraj Yadav</strong> • Indore, Madhya Pradesh, India. Built with clean code & hosted on GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript Engine -->
   <script>
-    // Typing animation
-    const phrases = [
-      '> neeraj.location = "Indore, MP, India"',
-      '> neeraj.current_focus = "Automation & Bot Development"',
-      '> neeraj.skills = ["Python", "APIs", "Data Tools"]',
-      '> neeraj.status = "Building cool tech daily"'
-    ];
-    let phraseIdx = 0, charIdx = 0, isDeleting = false;
-    function typeLoop() {
-      const current = phrases[phraseIdx];
-      const target = document.getElementById('typewriter');
-      if (isDeleting) {
-        target.textContent = current.substring(0, charIdx--);
-        if (charIdx < 0) { isDeleting = false; phraseIdx = (phraseIdx + 1) % phrases.length; setTimeout(typeLoop, 500); return; }
-      } else {
-        target.textContent = current.substring(0, charIdx++);
-        if (charIdx > current.length) { isDeleting = true; setTimeout(typeLoop, 1800); return; }
-      }
-      setTimeout(typeLoop, isDeleting ? 30 : 60);
-    }
-    document.addEventListener('DOMContentLoaded', typeLoop);
-
-    // Interactive Demo Switcher
-    function switchDemo(tab) {
-      document.querySelectorAll('.demo-tab-btn').forEach(btn => btn.classList.remove('active'));
-      if(tab === 'checkin') {
-        document.querySelectorAll('.demo-tab-btn')[0].classList.add('active');
-        document.getElementById('checkin-panel').style.display = 'block';
-        document.getElementById('expense-panel').style.display = 'none';
-      } else {
-        document.querySelectorAll('.demo-tab-btn').classList.add('active');
-        document.getElementById('checkin-panel').style.display = 'none';
-        document.getElementById('expense-panel').style.display = 'block';
+    function switchIdeTab(tabId) {
+      document.querySelectorAll('.ide-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.code-panel').forEach(p => p.classList.remove('active'));
+      
+      const activeBtn = Array.from(document.querySelectorAll('.ide-tab')).find(b => b.getAttribute('onclick').includes(tabId));
+      if (activeBtn) activeBtn.classList.add('active');
+      
+      const targetPanel = document.getElementById(tabId);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+        if (tabId === 'tab-cli') {
+          setTimeout(() => document.getElementById('cli-input').focus(), 50);
+        }
       }
     }
 
-    // Run Checkin Demo
-    function runCheckin() {
-      const val = document.getElementById('checkin-input').value.trim();
-      const out = document.getElementById('checkin-output');
-      if(!val) { out.innerHTML = '<span style="color:#ef4444;">⚠️ Please enter a task first.</span>'; return; }
-      const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-      out.innerHTML = `✅ [CHECK-IN LOGGED AT ${time}]<br/>> Task: "${val}"<br/>> Status: Active | Routed to Database.`;
+    const cliInput = document.getElementById('cli-input');
+    const cliHistory = document.getElementById('cli-history');
+
+    const commands = {
+      'help': 'Available commands: <span style="color:#38bdf8;">about, skills, projects, contact, clear, location</span>',
+      'about': 'Neeraj Yadav is a Software & Automation Engineer from Indore, MP, specializing in Python scripting and autonomous bots.',
+      'location': '📍 Based in Indore, Madhya Pradesh, India.',
+      'skills': '⚡ Tech Stack: Python 3, AsyncIO, Webhooks, REST APIs, Google Workspace APIs, JavaScript, SQL.',
+      'projects': '🤖 1. Autonomous Daily Check-in Bot\n💰 2. Smart Expense & Financial Analytics Engine',
+      'contact': '✉ Email: neerajyadav99269@gmail.com | 🐙 GitHub: https://github.com/neerajyadav-in',
+      'clear': '__CLEAR__'
+    };
+
+    if (cliInput) {
+      cliInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          const raw = this.value.trim().toLowerCase();
+          this.value = '';
+          if (!raw) return;
+
+          if (raw === 'clear') {
+            cliHistory.innerHTML = 'Terminal cleared. Type <span style="color:#38bdf8;">help</span> for commands.';
+            return;
+          }
+
+          const response = commands[raw] || `Command not recognized: '${raw}'. Type <span style="color:#38bdf8;">help</span> for a list of commands.`;
+          cliHistory.innerHTML += `<div><span style="color:#38bdf8;">neeraj@indore:~$</span> ${raw}</div><div style="margin-bottom:8px; color:#cbd5e1;">${response.replace(/\n/g, '<br/>')}</div>`;
+          cliHistory.parentElement.scrollTop = cliHistory.parentElement.scrollHeight;
+        }
+      });
     }
 
-    // Run Expense Demo
-    function runExpense() {
-      const desc = document.getElementById('expense-desc').value.trim();
-      const amt = document.getElementById('expense-amount').value.trim();
-      const out = document.getElementById('expense-output');
-      if(!desc || !amt) { out.innerHTML = '<span style="color:#ef4444;">⚠️ Please enter description and amount.</span>'; return; }
-      out.innerHTML = `✅ [EXPENSE RECORDED]<br/>> Category: ${desc}<br/>> Amount: ₹${amt}<br/>> Monthly budget updated.`;
+    function triggerCliCommand(cmd) {
+      switchIdeTab('tab-cli');
+      const hist = document.getElementById('cli-history');
+      const resp = commands[cmd] || '';
+      hist.innerHTML += `<div><span style="color:#38bdf8;">neeraj@indore:~$</span> ${cmd}</div><div style="margin-bottom:8px; color:#cbd5e1;">${resp.replace(/\n/g, '<br/>')}</div>`;
+      hist.parentElement.scrollTop = hist.parentElement.scrollHeight;
     }
   </script>
 </body>
