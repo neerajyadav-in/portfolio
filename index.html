@@ -12,28 +12,60 @@
   
   <style>
     :root {
-      --bg: #0f172a;
-      --card-bg: #1e293b;
+      --bg: #0b0f19;
+      --card-bg: rgba(30, 41, 59, 0.7);
       --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.25);
       --text: #f8fafc;
       --text-muted: #94a3b8;
+      --border: #334155;
+      --green: #10b981;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
     body { background-color: var(--bg); color: var(--text); line-height: 1.6; padding: 2rem 1rem; }
-    .container { max-width: 760px; margin: 0 auto; }
-    header { text-align: center; margin-bottom: 2.5rem; }
-    .profile-img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); box-shadow: 0 0 10px rgba(56, 189, 248, 0.2); margin-bottom: 0.8rem; pointer-events: none; user-select: none; }
-    header h1 { font-size: 2.2rem; color: #fff; margin-bottom: 0.3rem; }
+    .container { max-width: 780px; margin: 0 auto; }
+    
+    /* Header & Profile */
+    header { text-align: center; margin-bottom: 2rem; }
+    .profile-img { width: 68px; height: 68px; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); box-shadow: 0 0 16px var(--accent-glow); margin-bottom: 0.75rem; pointer-events: none; }
+    header h1 { font-size: 2.2rem; color: #fff; margin-bottom: 0.2rem; }
     header p { color: var(--accent); font-size: 1.05rem; font-weight: 500; }
-    .badge { display: inline-block; background: #0369a1; color: #fff; font-size: 0.8rem; padding: 4px 12px; border-radius: 999px; margin-top: 8px; }
+    .badge { display: inline-block; background: rgba(3, 105, 161, 0.4); border: 1px solid var(--accent); color: #fff; font-size: 0.8rem; padding: 4px 14px; border-radius: 999px; margin-top: 8px; }
+    
+    /* Terminal Box */
+    .terminal { background: #030712; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem; margin: 1.5rem auto 2.5rem; text-align: left; box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+    .terminal-header { display: flex; gap: 6px; margin-bottom: 0.8rem; }
+    .dot { width: 11px; height: 11px; border-radius: 50%; }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+    .terminal-body { font-family: 'Courier New', Courier, monospace; color: #38bdf8; font-size: 0.92rem; min-height: 24px; }
+    .cursor { display: inline-block; width: 8px; height: 15px; background: #38bdf8; vertical-align: middle; animation: blink 0.8s infinite; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    /* Sections & Cards */
     section { margin-bottom: 2.2rem; }
-    h2 { font-size: 1.35rem; color: var(--accent); margin-bottom: 0.8rem; border-bottom: 1px solid #334155; padding-bottom: 0.4rem; }
-    .card { background: var(--card-bg); padding: 1.25rem; border-radius: 8px; margin-bottom: 0.85rem; border: 1px solid #334155; }
-    .card h3 { font-size: 1.1rem; margin-bottom: 0.35rem; color: #fff; }
+    h2 { font-size: 1.35rem; color: var(--accent); margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+    .card { background: var(--card-bg); backdrop-filter: blur(8px); padding: 1.35rem; border-radius: 10px; margin-bottom: 1rem; border: 1px solid var(--border); transition: transform 0.2s, border-color 0.2s; }
+    .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .card h3 { font-size: 1.15rem; margin-bottom: 0.4rem; color: #fff; }
+    
+    /* Interactive Simulator Widget */
+    .demo-widget { background: #0f172a; border: 1px solid #38bdf8; border-radius: 10px; padding: 1.25rem; margin-top: 1rem; }
+    .demo-tabs { display: flex; gap: 8px; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    .demo-tab-btn { background: transparent; border: none; color: var(--text-muted); font-size: 0.9rem; font-weight: bold; cursor: pointer; padding: 4px 12px; border-radius: 6px; }
+    .demo-tab-btn.active { background: var(--accent); color: #0b0f19; }
+    .demo-input { width: 100%; background: #1e293b; border: 1px solid var(--border); color: #fff; padding: 10px; border-radius: 6px; margin-bottom: 0.75rem; font-size: 0.9rem; }
+    .demo-btn { background: var(--accent); color: #0b0f19; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+    .demo-output { margin-top: 0.75rem; background: #030712; border: 1px dashed var(--border); padding: 10px; border-radius: 6px; font-family: monospace; font-size: 0.85rem; color: #34d399; min-height: 38px; }
+    
+    /* Skills */
     .skills-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 0.5rem; }
-    .skill-tag { background: #334155; color: #e2e8f0; padding: 5px 12px; border-radius: 6px; font-size: 0.85rem; }
-    footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 2.5rem; border-top: 1px solid #334155; padding-top: 1.2rem; }
-    a.btn { display: inline-block; background: var(--accent); color: #0f172a; padding: 8px 18px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 8px; font-size: 0.9rem; }
+    .skill-tag { background: rgba(51, 65, 85, 0.6); border: 1px solid var(--border); color: #e2e8f0; padding: 6px 14px; border-radius: 8px; font-size: 0.85rem; transition: all 0.2s; }
+    .skill-tag:hover { background: var(--accent); color: #0b0f19; font-weight: bold; border-color: var(--accent); }
+    
+    footer { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-top: 2.5rem; border-top: 1px solid var(--border); padding-top: 1.2rem; }
+    a.btn { display: inline-block; background: var(--accent); color: #0b0f19; padding: 9px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; margin-top: 8px; font-size: 0.9rem; }
   </style>
 </head>
 <body>
@@ -43,6 +75,18 @@
       <h1>Neeraj Yadav</h1>
       <p>Developer & Automation Enthusiast</p>
       <span class="badge">Indore, Madhya Pradesh, India</span>
+      
+      <!-- Interactive Typing Terminal -->
+      <div class="terminal">
+        <div class="terminal-header">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+        </div>
+        <div class="terminal-body">
+          <span id="typewriter"></span><span class="cursor"></span>
+        </div>
+      </div>
     </header>
 
     <section id="about">
@@ -52,15 +96,41 @@
       </div>
     </section>
 
+    <!-- Interactive Live Demo Section -->
+    <section id="interactive-demo">
+      <h2>Interactive Bot Simulator</h2>
+      <div class="demo-widget">
+        <div class="demo-tabs">
+          <button class="demo-tab-btn active" onclick="switchDemo('checkin')">🤖 Check-in Bot Demo</button>
+          <button class="demo-tab-btn" onclick="switchDemo('expense')">💰 Expense Tracker Demo</button>
+        </div>
+        
+        <!-- Check-in Tab -->
+        <div id="checkin-panel">
+          <input type="text" id="checkin-input" class="demo-input" placeholder="Type a task/standup (e.g., 'Completed fleet tracker, writing bot code')" />
+          <button class="demo-btn" onclick="runCheckin()">Run Check-in</button>
+          <div id="checkin-output" class="demo-output">// Output will appear here...</div>
+        </div>
+
+        <!-- Expense Tab -->
+        <div id="expense-panel" style="display:none;">
+          <input type="text" id="expense-desc" class="demo-input" placeholder="Expense description (e.g., 'Cloud Server Hosting')" />
+          <input type="number" id="expense-amount" class="demo-input" placeholder="Amount in ₹ (e.g., 450)" />
+          <button class="demo-btn" onclick="runExpense()">Log Expense</button>
+          <div id="expense-output" class="demo-output">// Output will appear here...</div>
+        </div>
+      </div>
+    </section>
+
     <section id="projects">
-      <h2>Projects</h2>
+      <h2>Featured Projects</h2>
       <div class="card">
         <h3>🤖 Automated Daily Check-in Bot</h3>
-        <p>An automated bot that collects daily standup logs, sends routine reminder pings, and syncs progress records seamlessly.</p>
+        <p>An automated bot that collects daily standup logs, sends routine reminder pings, and syncs progress records seamlessly to databases and cloud sheets.</p>
       </div>
       <div class="card">
         <h3>💰 Smart Personal Expense & Budget Tracker</h3>
-        <p>A personal finance and expense logging tool that automatically categorizes spending, tracks daily budgets, and generates monthly summary insights.</p>
+        <p>A personal finance tool that automatically categorizes spending, tracks daily budgets, and generates structured monthly summary insights.</p>
       </div>
     </section>
 
@@ -88,5 +158,61 @@
       <p>© 2026 Neeraj Yadav • Indore, India</p>
     </footer>
   </div>
+
+  <script>
+    // Typing animation
+    const phrases = [
+      '> neeraj.location = "Indore, MP, India"',
+      '> neeraj.current_focus = "Automation & Bot Development"',
+      '> neeraj.skills = ["Python", "APIs", "Data Tools"]',
+      '> neeraj.status = "Building cool tech daily"'
+    ];
+    let phraseIdx = 0, charIdx = 0, isDeleting = false;
+    function typeLoop() {
+      const current = phrases[phraseIdx];
+      const target = document.getElementById('typewriter');
+      if (isDeleting) {
+        target.textContent = current.substring(0, charIdx--);
+        if (charIdx < 0) { isDeleting = false; phraseIdx = (phraseIdx + 1) % phrases.length; setTimeout(typeLoop, 500); return; }
+      } else {
+        target.textContent = current.substring(0, charIdx++);
+        if (charIdx > current.length) { isDeleting = true; setTimeout(typeLoop, 1800); return; }
+      }
+      setTimeout(typeLoop, isDeleting ? 30 : 60);
+    }
+    document.addEventListener('DOMContentLoaded', typeLoop);
+
+    // Interactive Demo Switcher
+    function switchDemo(tab) {
+      document.querySelectorAll('.demo-tab-btn').forEach(btn => btn.classList.remove('active'));
+      if(tab === 'checkin') {
+        document.querySelectorAll('.demo-tab-btn')[0].classList.add('active');
+        document.getElementById('checkin-panel').style.display = 'block';
+        document.getElementById('expense-panel').style.display = 'none';
+      } else {
+        document.querySelectorAll('.demo-tab-btn').classList.add('active');
+        document.getElementById('checkin-panel').style.display = 'none';
+        document.getElementById('expense-panel').style.display = 'block';
+      }
+    }
+
+    // Run Checkin Demo
+    function runCheckin() {
+      const val = document.getElementById('checkin-input').value.trim();
+      const out = document.getElementById('checkin-output');
+      if(!val) { out.innerHTML = '<span style="color:#ef4444;">⚠️ Please enter a task first.</span>'; return; }
+      const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+      out.innerHTML = `✅ [CHECK-IN LOGGED AT ${time}]<br/>> Task: "${val}"<br/>> Status: Active | Routed to Database.`;
+    }
+
+    // Run Expense Demo
+    function runExpense() {
+      const desc = document.getElementById('expense-desc').value.trim();
+      const amt = document.getElementById('expense-amount').value.trim();
+      const out = document.getElementById('expense-output');
+      if(!desc || !amt) { out.innerHTML = '<span style="color:#ef4444;">⚠️ Please enter description and amount.</span>'; return; }
+      out.innerHTML = `✅ [EXPENSE RECORDED]<br/>> Category: ${desc}<br/>> Amount: ₹${amt}<br/>> Monthly budget updated.`;
+    }
+  </script>
 </body>
 </html>
